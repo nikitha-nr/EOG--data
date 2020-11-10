@@ -45,6 +45,21 @@ const Metrics = () => {
       before: timeStamp.current,
       after: timeStamp.past,
     },
+    {
+      metricName: 'casingPressure',
+      before: timeStamp.current,
+      after: timeStamp.past,
+    },
+    {
+      metricName: 'flareTemp',
+      before: timeStamp.current,
+      after: timeStamp.past,
+    },
+    {
+      metricName: 'tubingPressure',
+      before: timeStamp.current,
+      after: timeStamp.past,
+    },
   ];
 
   const [measurementRes] = useQuery({

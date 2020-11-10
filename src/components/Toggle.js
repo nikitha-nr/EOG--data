@@ -67,6 +67,48 @@ export default function Toggle() {
             label="Oil Temp"
             labelPlacement="top"
           />
+            <FormControlLabel
+            value="end"
+            control={
+              <Switch
+                checked={state.checkedE}
+                onChange={handleChange('checkedE')}
+                value="casingPressure"
+                color="primary"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            label="Casing Pressure"
+            labelPlacement="top"
+          />
+          <FormControlLabel
+            value="end"
+            control={
+              <Switch
+                checked={state.checkedD}
+                onChange={handleChange('checkedD')}
+                value="flareTemp"
+                color="primary"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            label="Flare Temp"
+            labelPlacement="top"
+          />
+          <FormControlLabel
+            value="bottom"
+            control={
+              <Switch
+                checked={state.checkedC}
+                onChange={handleChange('checkedC')}
+                value="tubingPressure"
+                color="primary"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            label="Tubing Pressure"
+            labelPlacement="top"
+          />
         </FormGroup>
       </FormControl>
     </div>

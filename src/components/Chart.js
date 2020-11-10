@@ -9,8 +9,12 @@ export default function Chart() {
    const waterTempData = useSelector(state => state.waterTemp.waterTempData);
    const activeMetrics = useSelector(state => state.activeMetrics.selectedMetrics);
    const oilTempData = useSelector(state => state.oilTemp.oilTempData);
-
-  const filterByActive = data => {
+   const casingPressureData = useSelector(state => state.casingPressure.casingPressureData);
+   const flareTempData = useSelector(state => state.flareTemp.flareTempData);
+    const tubingPressureData = useSelector(state => state.tubingPressure.tubingPressureData);
+  
+  
+    const filterByActive = data => {
     for (let i = 0; i < activeMetrics.length; i++) {
       if (data.metric === activeMetrics[i].metricName) {
         return true;
@@ -31,21 +35,39 @@ export default function Chart() {
           metric: 'oilTemp',
           measurements: multiData[1].measurements.concat(oilTempData),
         },
+        {
+          metric: 'casingPressure',
+          measurements: multiData[2].measurements.concat(casingPressureData),
+        },
+        {
+          metric: 'flareTemp',
+          measurements: multiData[3].measurements.concat(flareTempData),
+        },
+        {
+        metric: 'tubingPressure',
+        measurements: multiData[4].measurements.concat(tubingPressureData),
+      },
       ]);
     }
   }, 
-  [waterTempData, multiData,oilTempData]);
+  [waterTempData, multiData,oilTempData,casingPressureData,flareTempData]);
   const names = {
     
     waterTemp: 'Water Temp',
     default: 'metric',
-    oilTemp: 'Oil Temp'
+    oilTemp: 'Oil Temp',
+    casingPressure: 'Casing Pressure',
+    flareTemp: 'Flare Temp',
+    tubingPressure:'Tubing Pressure'
   };
 
   const colors = {
     waterTemp: '#830BEE',
     default: '#00FFE0',
     oilTemp: '#000000',
+    casingPressure: '#000CFF',
+    flareTemp: '#FFB201',
+    tubingPressure:'green'
   };
 
   return (
@@ -67,9 +89,32 @@ export default function Chart() {
               data={`${oilTempData[oilTempData.length - 1].value} ${oilTempData[0].unit}`}
             />
           );
-          
-       
-         }
+        } else if (i.metricName === casingPressureData[0].metric) {
+          return (
+            <Card
+              color={colors[i.metricName]}
+              metric={names[i.metricName]}
+              data={`${casingPressureData[casingPressureData.length - 1].value} ${casingPressureData[0].unit}`}
+            />
+          );
+        } else if (i.metricName === flareTempData[0].metric) {
+          return (
+            <Card
+              color={colors[i.metricName]}
+              metric={names[i.metricName]}
+              data={`${flareTempData[flareTempData.length - 1].value} ${flareTempData[0].unit}`}
+            />
+          );
+        } else if (i.metricName === tubingPressureData[0].metric) {
+          return (
+            <Card
+              color={colors[i.metricName]}
+              metric={names[i.metricName]}
+              data={`${tubingPressureData[tubingPressureData.length - 1].value} ${flareTempData[0].unit}`}
+            />
+          );
+        }
+
       })}
       <LineChart width={1000} height={500}>
         <CartesianGrid strokeDasharray="3 3" />
