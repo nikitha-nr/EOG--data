@@ -1,3 +1,4 @@
+/* nikitha*/
 module.exports = {
   env: {
     browser: true,
