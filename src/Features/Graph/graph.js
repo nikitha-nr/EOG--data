@@ -30,7 +30,7 @@ const Graph = () => {
     query: graphQuery,
   });
   const { data, error } = graphRes;
-  useEffect(() => {
+  useEffect(() => {useSelector(graphRes, error)
     if (error) {
       console.log(error.message);
       return;

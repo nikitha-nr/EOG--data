@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from 'redux-starter-kit';
 
+
 export type WeatherForLocation = {
   description: string;
   locationName: string;

@@ -2,7 +2,6 @@ import React, { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Provider, useSubscription, createClient, defaultExchanges, subscriptionExchange } from 'urql';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
-
 import { actions as wtActions } from '../WaterTemp/reducer';
 
 const subscriptionClient = new SubscriptionClient('wss://react.eogresources.com/graphql', {

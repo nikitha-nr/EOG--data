@@ -31,37 +31,10 @@ export default () => {
 };
 
 const Metrics = () => {
-  // const activeMetrics = useSelector(state => state.activeMetrics.selectedMetrics);
-  // const [metricsArr, metricSet] = useState([]);
   const timeStamp = useSelector(state => state.graphData);
   const dispatch = useDispatch();
 
   const metricSet = [
-    // {
-    //   metricName: 'injValveOpen',
-    //   before: timeStamp.current,
-    //   after: timeStamp.past,
-    // },
-    // {
-    //   metricName: 'oilTemp',
-    //   before: timeStamp.current,
-    //   after: timeStamp.past,
-    // },
-    // {
-    //   metricName: 'casingPressure',
-    //   before: timeStamp.current,
-    //   after: timeStamp.past,
-    // },
-    // {
-    //   metricName: 'tubingPressure',
-    //   before: timeStamp.current,
-    //   after: timeStamp.past,
-    // },
-    // {
-    //   metricName: 'flareTemp',
-    //   before: timeStamp.current,
-    //   after: timeStamp.past,
-    // },
     {
       metricName: 'waterTemp',
       before: timeStamp.current,
