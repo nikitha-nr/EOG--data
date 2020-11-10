@@ -36,7 +36,7 @@ export default function Toggle() {
 
   return (
     <div>
-      <h1>WaterTemperature Data Sample</h1>
+      <h1>Live Metric Data temperatures/ pressures Samples</h1>
       <FormControl component="fieldset">
         <FormGroup aria-label="position" row>
           <FormControlLabel
