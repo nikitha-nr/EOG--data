@@ -39,6 +39,7 @@ export default function Chart() {
     
     waterTemp: 'Water Temp',
     default: 'metric',
+    oilTemp: 'Oil Temp'
   };
 
   const colors = {
