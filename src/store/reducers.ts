@@ -7,6 +7,7 @@ import { reducer as oilTempReducer} from '../Features/OilTemp/reducer';
 import { reducer as casingPReducer} from '../Features/CasingPressure/reducer'
 import { reducer as flareTempReducer} from '../Features/FlareTemp/reducer';
 import { reducer as tubingPReducer} from '../Features/TubingPressure/reducer';
+import { reducer as injValveReducer} from '../Features/InjValve/reducer';
 
 export default {
   weather: weatherReducer,
@@ -18,5 +19,6 @@ export default {
   casingPressure: casingPReducer,
   flareTemp: flareTempReducer,
   tubingPressure:tubingPReducer,
+  injValve:injValveReducer,
 
 };

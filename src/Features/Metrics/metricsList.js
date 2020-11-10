@@ -60,6 +60,11 @@ const Metrics = () => {
       before: timeStamp.current,
       after: timeStamp.past,
     },
+    {
+      metricName: 'injValveOpen',
+      before: timeStamp.current,
+      after: timeStamp.past,
+    },
   ];
 
   const [measurementRes] = useQuery({

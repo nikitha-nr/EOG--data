@@ -109,6 +109,20 @@ export default function Toggle() {
             label="Tubing Pressure"
             labelPlacement="top"
           />
+           <FormControlLabel
+            value="top"
+            control={
+              <Switch
+                checked={state.checkedA}
+                onChange={handleChange('checkedA')}
+                value="injValveOpen"
+                color="primary"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            label="INJ Valve Open"
+            labelPlacement="top"
+          />
         </FormGroup>
       </FormControl>
     </div>

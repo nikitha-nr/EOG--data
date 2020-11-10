@@ -11,8 +11,9 @@ export default function Chart() {
    const oilTempData = useSelector(state => state.oilTemp.oilTempData);
    const casingPressureData = useSelector(state => state.casingPressure.casingPressureData);
    const flareTempData = useSelector(state => state.flareTemp.flareTempData);
-    const tubingPressureData = useSelector(state => state.tubingPressure.tubingPressureData);
-  
+   const tubingPressureData = useSelector(state => state.tubingPressure.tubingPressureData);
+   const injValveData = useSelector(state => state.injValve.injValveData);
+
   
     const filterByActive = data => {
     for (let i = 0; i < activeMetrics.length; i++) {
@@ -47,12 +48,16 @@ export default function Chart() {
         metric: 'tubingPressure',
         measurements: multiData[4].measurements.concat(tubingPressureData),
       },
+      {
+        metric: 'injValveOpen',
+        measurements: multiData[5].measurements.concat(injValveData),
+      },
       ]);
     }
   }, 
-  [waterTempData, multiData,oilTempData,casingPressureData,flareTempData]);
+  [waterTempData, multiData,oilTempData,casingPressureData,flareTempData,injValveData]);
   const names = {
-    
+    injValveOpen: 'INJ Valve Open',
     waterTemp: 'Water Temp',
     default: 'metric',
     oilTemp: 'Oil Temp',
@@ -67,7 +72,8 @@ export default function Chart() {
     oilTemp: '#000000',
     casingPressure: '#000CFF',
     flareTemp: '#FFB201',
-    tubingPressure:'green'
+    tubingPressure:'green',
+    injValveOpen: '#1BD82A',
   };
 
   return (
@@ -111,6 +117,15 @@ export default function Chart() {
               color={colors[i.metricName]}
               metric={names[i.metricName]}
               data={`${tubingPressureData[tubingPressureData.length - 1].value} ${flareTempData[0].unit}`}
+            />
+          );
+        } 
+          else if (i.metricName === injValveData[0].metric) {
+          return (
+            <Card
+              color={colors[i.metricName]}
+              metric={names[i.metricName]}
+              data={`${injValveData[injValveData.length - 1].value}${injValveData[0].unit}`}
             />
           );
         }

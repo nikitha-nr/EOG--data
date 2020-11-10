@@ -7,6 +7,7 @@ import { actions as otActions} from '../OilTemp/reducer';
 import { actions as cpActions} from '../CasingPressure/reducer';
 import { actions as ftActions} from '../FlareTemp/reducer';
 import { actions as tpActions} from '../TubingPressure/reducer';
+import { actions as injActions} from '../InjValve/reducer';
 
 const subscriptionClient = new SubscriptionClient('wss://react.eogresources.com/graphql', {
   reconnect: true,
@@ -50,6 +51,8 @@ const Receiver = () => {
       return dispatch(ftActions.flareTempData(measurement));
     }else if (measurement.metric === 'tubingPressure') {
       return dispatch(tpActions.tubingPressureData(measurement));
+    }else if (measurement.metric === 'injValue') {
+      return dispatch(injActions.injValueData(measurement));
     }
     
   };
