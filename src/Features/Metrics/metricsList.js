@@ -40,6 +40,11 @@ const Metrics = () => {
       before: timeStamp.current,
       after: timeStamp.past,
     },
+    {
+      metricName: 'oilTemp',
+      before: timeStamp.current,
+      after: timeStamp.past,
+    },
   ];
 
   const [measurementRes] = useQuery({

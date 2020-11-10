@@ -8,6 +8,7 @@ export default function Chart() {
    const multiData = useSelector(state => state.multipleData.multipleData);
    const waterTempData = useSelector(state => state.waterTemp.waterTempData);
    const activeMetrics = useSelector(state => state.activeMetrics.selectedMetrics);
+   const oilTempData = useSelector(state => state.oilTemp.oilTempData);
 
   const filterByActive = data => {
     for (let i = 0; i < activeMetrics.length; i++) {
@@ -26,10 +27,14 @@ export default function Chart() {
           metric: 'waterTemp',
           measurements: multiData[0].measurements.concat(waterTempData),
         },
+        {
+          metric: 'oilTemp',
+          measurements: multiData[1].measurements.concat(oilTempData),
+        },
       ]);
     }
   }, 
-  [waterTempData, multiData]);
+  [waterTempData, multiData,oilTempData]);
   const names = {
     
     waterTemp: 'Water Temp',
@@ -39,6 +44,7 @@ export default function Chart() {
   const colors = {
     waterTemp: '#830BEE',
     default: '#00FFE0',
+    oilTemp: '#000000',
   };
 
   return (
@@ -52,6 +58,15 @@ export default function Chart() {
               data={`${waterTempData[waterTempData.length - 1].value} ${waterTempData[0].unit}`}
             />
           );
+          }else if (i.metricName === oilTempData[0].metric) {
+          return (
+            <Card
+              color={colors[i.metricName]}
+              metric={names[i.metricName]}
+              data={`${oilTempData[oilTempData.length - 1].value} ${oilTempData[0].unit}`}
+            />
+          );
+          
        
          }
       })}

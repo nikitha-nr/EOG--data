@@ -53,6 +53,20 @@ export default function Toggle() {
             label="Water Temp"
             labelPlacement="top"
           />
+          <FormControlLabel
+            value="start"
+            control={
+              <Switch
+                checked={state.checkedB}
+                onChange={handleChange('checkedB')}
+                value="oilTemp"
+                color="primary"
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+              />
+            }
+            label="Oil Temp"
+            labelPlacement="top"
+          />
         </FormGroup>
       </FormControl>
     </div>

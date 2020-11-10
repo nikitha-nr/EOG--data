@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Provider, useSubscription, createClient, defaultExchanges, subscriptionExchange } from 'urql';
 import { SubscriptionClient } from 'subscriptions-transport-ws';
 import { actions as wtActions } from '../WaterTemp/reducer';
+import { actions as otActions} from '../OilTemp/reducer';
 
 const subscriptionClient = new SubscriptionClient('wss://react.eogresources.com/graphql', {
   reconnect: true,
@@ -38,8 +39,9 @@ const Receiver = () => {
      
     if (measurement.metric === 'waterTemp') {
       return dispatch(wtActions.waterTempData(measurement));
-    
-    }  
+    } else if (measurement.metric === 'oilTemp') {
+      return dispatch(otActions.oilTempData(measurement));
+    }
     
   };
 
