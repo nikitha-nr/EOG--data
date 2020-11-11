@@ -51,8 +51,8 @@ const Receiver = () => {
       return dispatch(ftActions.flareTempData(measurement));
     }else if (measurement.metric === 'tubingPressure') {
       return dispatch(tpActions.tubingPressureData(measurement));
-    }else if (measurement.metric === 'injValue') {
-      return dispatch(injActions.injValueData(measurement));
+    }else if (measurement.metric === 'injValveOpen') {
+      return dispatch(injActions.injValveData(measurement));
     }
     
   };
